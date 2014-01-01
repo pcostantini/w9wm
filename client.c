@@ -25,11 +25,11 @@ int on;
 	  {
 	    XGrabKey(dpy, 
 		     XKeysymToKeycode(dpy, XK_Tab),
-		     ControlMask, 
+		     Mod1Mask, 
 		     root, False, GrabModeAsync, GrabModeAsync);
 	    XGrabKey(dpy, 
 		     XKeysymToKeycode(dpy, XK_Tab),
-		     ControlMask|ShiftMask, 
+		     Mod1Mask|ShiftMask, 
 		     root, False, GrabModeAsync, GrabModeAsync);
 	  }
 
