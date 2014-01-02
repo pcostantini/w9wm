@@ -93,6 +93,7 @@ extern Atom         wm_take_focus;
 extern Atom         wm_colormaps;
 extern unsigned long    black;
 extern unsigned long    white;
+extern unsigned long    active_border_color;
 extern Bool         shape;
 extern char         *termprog;
 extern char         *shell;

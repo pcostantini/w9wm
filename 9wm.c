@@ -31,6 +31,7 @@ int             initting;
 GC              gc;
 unsigned long   black;
 unsigned long   white;
+unsigned long   active_border_color;
 XFontStruct     *font;
 int             nostalgia;
 char            **myargv;
@@ -194,6 +195,14 @@ char    *argv[];
 
     black = BlackPixel(dpy, screen);
     white = WhitePixel(dpy, screen);
+    
+    // active border color
+    XColor col;
+    col.red = 28 * 255;  // value is 0-65535
+    col.green = 28 * 255;
+    col.blue = 28 * 255;
+    XAllocColor(dpy, DefaultColormap(dpy,0), &col);
+    active_border_color = col.pixel;
 
     if (fname != 0)
         if ((font = XLoadQueryFont(dpy, fname)) == 0)
