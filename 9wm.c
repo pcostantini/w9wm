@@ -19,7 +19,8 @@
 char    *version[] = 
 {
     "9wm version 1.1, Copyright (c) 1994 David Hogan", 
-    "w9wm version 0.4.2, Copyright (c) 2000-2003 Benjamin Drieu", 0,
+    "w9wm version 0.4.2, Copyright (c) 2000-2003 Benjamin Drieu",
+    "w9wm tweaks, Pablo Costantini 2014 - github.com/pcostantini/w9wm", 0,
 };
 
 Display         *dpy;

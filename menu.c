@@ -120,27 +120,29 @@ XButtonEvent *e;
 	else {
             if ((e->state&(ShiftMask|ControlMask))==(ShiftMask|ControlMask))
                 menuhit(e, &egg);
-	    else
-	        button2(e);
 	}
         return;
     default:
         return;
+        
     case Button3:
         if (c && click_passes) {
             XMapRaised(dpy, c->parent);
             active(c);
-	    XAllowEvents (dpy, ReplayPointer, curtime);
-        }
-	else
+	        XAllowEvents (dpy, ReplayPointer, curtime);
+        } else if ((e->state&(ShiftMask|ControlMask))==(ShiftMask|ControlMask)) {
+            button_virtuals(e);
+        } else {
             button3(e);
+        }
+        
         break;
     }
 }
 
 
 void 
-button2(e)
+button_virtuals(e)
 XButtonEvent *e;
 {
     int n;
