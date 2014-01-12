@@ -33,6 +33,7 @@ GC              gc;
 unsigned long   black;
 unsigned long   white;
 unsigned long   active_border_color;
+unsigned long   deactive_border_color;
 XFontStruct     *font;
 int             nostalgia;
 char            **myargv;
@@ -197,14 +198,20 @@ char    *argv[];
     black = BlackPixel(dpy, screen);
     white = WhitePixel(dpy, screen);
     
-    // active border color
+    // border colors
     XColor col;
-    col.red = 28 * 255;  // value is 0-65535
-    col.green = 28 * 255;
-    col.blue = 28 * 255;
+    col.red = 25 * 256;  // value is 0-65535
+    col.green = 25 * 256;
+    col.blue = 25 * 256;
     XAllocColor(dpy, DefaultColormap(dpy,0), &col);
     active_border_color = col.pixel;
 
+    col.red = 200 * 256;  // value is 0-65535
+    col.green = 200 * 256;
+    col.blue = 200 * 256;
+    XAllocColor(dpy, DefaultColormap(dpy,0), &col);
+    deactive_border_color = col.pixel;
+    
     if (fname != 0)
         if ((font = XLoadQueryFont(dpy, fname)) == 0)
             fprintf(stderr, "9wm: warning: can't load font %s\n", fname);
