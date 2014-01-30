@@ -149,17 +149,15 @@ getcursor(c)
 Cursordata *c;
 {
     Pixmap f, m;
-    XColor bl, wh, d;
+    XColor bc, fc, d;
 
-    f = XCreatePixmapFromBitmapData(dpy, root, (char *)c->fore,
-        c->width, c->width, 1, 0, 1);
-    m = XCreatePixmapFromBitmapData(dpy, root, (char *)c->mask,
-        c->width, c->width, 1, 0, 1);
-    XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "black", &bl, &d);
-    XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "white", &wh, &d);
-    return XCreatePixmapCursor(dpy, f, m, &bl, &wh,
-                    c->hot[0], c->hot[1]);
+    f = XCreatePixmapFromBitmapData(dpy, root, (char *)c->fore, c->width, c->width, 1, 0, 1);
+    m = XCreatePixmapFromBitmapData(dpy, root, (char *)c->mask, c->width, c->width, 1, 0, 1);
+    XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "white", &bc, &d);
+    XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "red", &fc, &d);
+    return XCreatePixmapCursor(dpy, f, m, &fc, &bc, c->hot[0], c->hot[1]);
 }
+
 
 void
 initcurs()
