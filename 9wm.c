@@ -66,6 +66,7 @@ Atom        _9wm_hold_mode;
 void    usage(), sighandler(), getevent();
 
 char    *fontlist[] = {
+    "7x13",
     "lucm.latin1.9",
     "blit",
     "9x15bold",
@@ -231,6 +232,9 @@ char    *argv[];
     }
     if (nostalgia)
         _border--;
+    
+    // bg image
+    system("feh --bg-scale /usr/share/w9wm/bg.jpg");
 
     gv.foreground = black^white;
     gv.background = white;
