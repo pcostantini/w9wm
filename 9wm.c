@@ -234,7 +234,7 @@ char    *argv[];
         _border--;
     
     // bg image
-    system("feh --bg-scale /usr/share/w9wm/bg.jpg");
+    system("feh --bg-fill /usr/share/w9wm/bg.jpg");
 
     gv.foreground = black^white;
     gv.background = white;
